@@ -10,7 +10,7 @@
 << [link to demo presentation slides](#) >>
 
 ### Team: << team name >>
-#### JiaRong Jin, 
+#### JiaRong Jin, Brian Seo
 
 ***
 
