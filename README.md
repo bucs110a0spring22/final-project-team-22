@@ -10,7 +10,7 @@
 << [link to demo presentation slides](#) >>
 
 ### Team: << team name >>
-#### JiaRong Jin, Brian Seo
+#### JiaRong Jin, Brian Seo, David Allen
 
 ***
 
@@ -60,15 +60,15 @@ The Project is broken down into the following file structure:
 
    * You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
 
-### Software Lead - << name >>
+### Software Lead - JiaRong Jin
 
 << Worked as integration specialist by... >>
 
-### Front End Specialist - << name >>
+### Front End Specialist - David Allen
 
 << Front-end lead conducted significant research on... >>
 
-### Back End Specialist - << name >>
+### Back End Specialist - Brian Seo
 
 << The back end specialist... >>
 
