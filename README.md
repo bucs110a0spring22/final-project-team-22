@@ -2,7 +2,7 @@
 # CS110 Project Proposal
 # << Project Title >>
 ## CS 110 Final Project
-### << Semester, Year >>
+### Spring, 2022
 ### [Assignment Description](https://docs.google.com/document/d/1H4R6yLL7som1lglyXWZ04RvTp_RvRFCCBn6sqv-82ps/edit#)
 
 << [repl](#) >>
@@ -56,6 +56,7 @@ The Project is broken down into the following file structure:
     * <all of your media, i.e. images, font files, etc, should go here)
 * etc
     * <This is a catch all folder for things that are not part of your project, but you want to keep with your project. Your demo video should go here.>
+* ![structure sketch](etc/class_structure_sketch.jpg)
 
 ***
 
