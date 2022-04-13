@@ -22,7 +22,10 @@
 
 ## User Interface Design *(Front End Specialist)*
 
-* << A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program. >>
+* gameover cs110.jpg, in-game cs110.jpg, menu cs110.jpg in etc folder
+* * ![game menu sketch](etc/menu_cs110.jpg)
+* * ![in-game sketch](etc/in-game_cs110.jpg)
+* * ![game over sketch](etc/gameover_cs110.jpg)
     * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
 * << You should also have a screenshot of each screen for your final GUI >>
 
