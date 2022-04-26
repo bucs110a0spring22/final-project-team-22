@@ -2,9 +2,13 @@
 class Controller:
   
   def __init__(self):
+    pygame.init()
+    
     #setup pygame data
     
   def mainloop(self):
+    while self.state == "RUNNING":
+      
     #select state loop
     
   
