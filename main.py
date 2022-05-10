@@ -1,18 +1,17 @@
 import pygame
+from src import controller
 #import your controller
-mylist = []
-for ask in range(4):
-    mylist.append(int(input("Please enter a number:")))
-for number in mylist:
-    print(number)
-mylist[0], mylist[3] = mylist[3], mylist[0]
-print(mylist)
 
 
 def main():
     pygame.init()
+    controller()
+
+    
     #Create an instance on your controller object
     #Call your mainloop
+  
+    
 
     ###### NOTHING ELSE SHOULD GO IN main(), JUST THE ABOVE 3 LINES OF CODE ######
 

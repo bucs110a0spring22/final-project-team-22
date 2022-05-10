@@ -8,4 +8,4 @@ class Bullet(pygame.sprite.Sprite):
     self.rect.y= position[1]
 
   def update(self):
-    
+    pass
