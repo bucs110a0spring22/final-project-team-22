@@ -21,6 +21,8 @@ class Controller:
     for i in range(number_of_enemies):
       self.enemies.add(enemy.Enemy(width/2,height/2,"assets/Enemy_jelly.png"))
     self.player=player.Player(50,height/2,"assets/Player.png")
+    self.bullet=bullet.Bullet(-10,-10,"assets/Bullet_drawing.png")
+    #self.bullets.add(bullet.Bullet(-10,-10,"assets/Bullet_drawing.png"))
     self.all_sprites=pygame.sprite.Group((self.player),tuple(self.enemies), tuple(self.bullets))
     self.gamestate="RUNNING"
   def mainloop(self):
@@ -42,9 +44,9 @@ class Controller:
           elif(event.key == pygame.K_d):
               self.player.move_right()
           elif(event.key == pygame.K_SPACE):
-            pass
+            self.bullet.fired(self.player.rect.x,self.player.rect.y)
       self.enemies.update()
-      #self.bullet.update()
+      self.bullets.update()
       self.screen.blit(self.background, (0, 0))
       self.all_sprites.draw(self.screen)
       pygame.display.flip()
