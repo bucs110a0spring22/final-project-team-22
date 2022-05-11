@@ -1,5 +1,4 @@
 import pygame
-from src import player
 class Bullet(pygame.sprite.Sprite):
   def __init__(self, x,y, filename):
     pygame.sprite.Sprite.__init__(self)
@@ -9,7 +8,8 @@ class Bullet(pygame.sprite.Sprite):
     self.rect.x= x
     self.rect.y= y
   def update(self):
-    self.rect.x+=1
+    if self.rect.x<600:
+      self.rect.x+=1
   def fired(self,x,y):
     self.rect.x=x
     self.rect.y=y
