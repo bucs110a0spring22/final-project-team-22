@@ -7,7 +7,7 @@ class Controller:
 
     #init
     pygame.init()
-    self.clock=pygame.time.Clock()
+    self.clock = pygame.time.Clock()
     pygame.font.init()
     pygame.key.set_repeat(1, 50)
 
@@ -19,15 +19,15 @@ class Controller:
     self.background.blit(pygame.image.load('assets/background.png'),(0,0))
     
     #objects
-    self.player=player.Player(50,self.height/2,"assets/player2.png")
+    self.player=player.Player(50, self.height/2, "assets/player2.png")
     self.enemies = pygame.sprite.Group()
     self.bullets = pygame.sprite.Group()
-    self.bullet = bullet.Bullet(50,self.height/2,"assets/bullet.png")
+    self.bullet = bullet.Bullet(50, self.height/2, "assets/bullet.png")
 
     self.enemies_killed = 0
     self.number_of_enemies = 5
     for i in range(self.number_of_enemies):
-      self.enemies.add(enemy.Enemy(random.randrange(self.width/2, self.width*0.9),random.randrange(self.height/2, self.height*0.9),"assets/enemy.png"))
+      self.enemies.add(enemy.Enemy(random.randrange(self.width/2, self.width*0.9),random.randrange(self.height/5, self.height*0.9),"assets/enemy.png"))
     
     self.all_sprites = pygame.sprite.Group((self.player),tuple(self.enemies), (self.bullet))
     self.gamestate = "RUNNING"
@@ -54,7 +54,8 @@ class Controller:
               self.player.move_left()
           elif(event.key == pygame.K_d):
               self.player.move_right()
-          elif(event.key == pygame.K_SPACE):
+        if event.type == pygame.KEYUP:
+          if(event.key == pygame.K_SPACE):
             self.bullet.fired(self.player.rect.x,self.player.rect.y)
             
       bullet_hit = pygame.sprite.spritecollide(self.bullet,self.enemies, True)
@@ -73,9 +74,12 @@ class Controller:
       pygame.display.flip()
 
   def win(self):
-    font = pygame.font.SysFont(None, 30)
-    text = font.render("You won! Press R to play again.", False, (0, 0, 0))
-    self.screen.blit(text, (200, 300))
+    font = pygame.font.SysFont(None, 50)
+    text_1 = font.render("You won! Press R to play again.", False, (255, 255, 255))
+    text_2 = font.render("Press Q to exit.", False, (255, 255, 255))
+    
+    self.screen.blit(text_1, (220, 250))
+    self.screen.blit(text_2, (340,300))
     pygame.display.flip()
     
     while self.gamestate == "WIN":
@@ -92,8 +96,10 @@ class Controller:
                 self.enemies_killed = 0
                 self.number_of_enemies = 5
                 for i in range(self.number_of_enemies):
-                  self.enemies.add(enemy.Enemy(random.randrange(self.width/2, self.width*0.9),random.randrange(self.height/2, self.height*0.9),"assets/enemy.png"))
+                  self.enemies.add(enemy.Enemy(random.randrange(self.width/2, self.width*0.9),random.randrange(self.height/5, self.height*0.9),"assets/enemy.png"))
 
                 self.all_sprites = pygame.sprite.Group((self.player),tuple(self.enemies), (self.bullet))
                 self.gamestate = "RUNNING"
+              elif(event.key == pygame.K_q):
+                sys.exit()
                 

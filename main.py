@@ -18,5 +18,4 @@ def main():
     game.mainloop()
     ###### NOTHING ELSE SHOULD GO IN main(), JUST THE ABOVE 3 LINES OF CODE ######
 
-
 main()
