@@ -29,8 +29,9 @@ class Controller:
     self.bullets=pygame.sprite.Group()
     self.bullet=bullet.Bullet(50,height/2,"assets/bullet.png")
 
-    number_of_enemies=5
-    for i in range(number_of_enemies):
+    self.enemies_killed = 0
+    self.number_of_enemies=5
+    for i in range(self.number_of_enemies):
       self.enemies.add(enemy.Enemy(random.randrange(width/2, width*0.9),random.randrange(height/2, height*0.9),"assets/enemy.png"))
     
     
@@ -62,10 +63,17 @@ class Controller:
           elif(event.key == pygame.K_SPACE):
             self.bullet.fired(self.player.rect.x,self.player.rect.y)
       bullet_hit= pygame.sprite.spritecollide(self.bullet,self.enemies, True)
+      
       if bullet_hit:
         for i in bullet_hit:
           i.kill()
-          self.gamestate="GAMEOVER"
+          self.enemies_killed += 1
+
+      print(self.enemies_killed)
+
+      if self.enemies_killed == self.number_of_enemies:
+        self.gamestate = "GAMEOVER"
+          
       self.enemies.update()
       self.bullet.update()
       self.screen.blit(self.background, (0, 0))
