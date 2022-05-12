@@ -5,32 +5,46 @@ from src import bullet
 from src import enemy
 from src import player
 class Controller:
-  def __init__(self, width=640, height=480):
+
+  def __init__(self, width=960, height=540):
+
+    #init
     pygame.init()
+    self.clock=pygame.time.Clock()
+    pygame.font.init()
+    pygame.key.set_repeat(1, 50)
+
+    #screen
     self.width = width
     self.height = height
     self.screen = pygame.display.set_mode((self.width, self.height))
     self.background = pygame.Surface(self.screen.get_size()).convert()
-    self.background.fill((250, 250, 250))  # set the background to white
-    self.clock=pygame.time.Clock()
-    pygame.font.init()
-    pygame.key.set_repeat(1, 50)
+    #self.background.fill((250, 250, 250))  # set the background to white
+    self.background.blit(pygame.image.load('assets/background.png'),(0,0))
+    
+    #objects
+    self.player=player.Player(50,height/2,"assets/player2.png")
+
     self.enemies = pygame.sprite.Group()
     self.bullets=pygame.sprite.Group()
-    number_of_enemies=3
+    self.bullet=bullet.Bullet(50,height/2,"assets/bullet.png")
+
+    number_of_enemies=5
     for i in range(number_of_enemies):
-      self.enemies.add(enemy.Enemy(width/2,height/2,"assets/Enemy_jelly.png"))
-    self.player=player.Player(50,height/2,"assets/Player.png")
-    self.bullet=bullet.Bullet(50,height/2,"assets/Bullet_drawing.png")
+      self.enemies.add(enemy.Enemy(random.randrange(width/2, width*0.9),random.randrange(height/2, height*0.9),"assets/enemy.png"))
+    
+    
     #self.bullets.add(bullet.Bullet(-10,-10,"assets/Bullet_drawing.png"))
     self.all_sprites=pygame.sprite.Group((self.player),tuple(self.enemies), (self.bullet))
     self.gamestate="RUNNING"
+
   def mainloop(self):
     while True:
       if self.gamestate=="RUNNING":
         self.gameloop()
       if self.gamestate=="GAMEOVER":
         self.gameover()
+
   def gameloop(self):
     while self.gamestate=="RUNNING":
       for event in pygame.event.get():
@@ -57,6 +71,7 @@ class Controller:
       self.screen.blit(self.background, (0, 0))
       self.all_sprites.draw(self.screen)
       pygame.display.flip()
+
   def gameover(self):
     font = pygame.font.SysFont(None, 30)
     text = font.render("Game Over, play again? press SPACE ", False, (0, 0, 0))
@@ -70,3 +85,4 @@ class Controller:
               if(event.key == pygame.K_SPACE):
                 self.gamestate="RUNNING"
                 break
+                
