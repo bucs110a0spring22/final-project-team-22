@@ -1,6 +1,5 @@
 import pygame
 import random
-
 class Enemy(pygame.sprite.Sprite):
 
   def __init__(self, x,y, filename):
@@ -16,4 +15,6 @@ class Enemy(pygame.sprite.Sprite):
     move = random.randrange(0, 30)
     if move == 1:
       self.rect.x -= 3
-      
+  def wall(self):
+    if self.rect.x <400:
+      return True

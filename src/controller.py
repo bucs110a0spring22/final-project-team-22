@@ -1,5 +1,5 @@
 import pygame, sys, random
-from src import bullet, enemy, player
+from src import bullet, enemy, player,wall
 
 class Controller:
 
@@ -17,15 +17,17 @@ class Controller:
     self.screen = pygame.display.set_mode((self.width, self.height))
     self.background = pygame.Surface(self.screen.get_size()).convert()
     self.background.blit(pygame.image.load('assets/background.png'),(0,0))
-    
+
     #objects
+    self.wall = wall.Wall(0,0)
+    self.wallgroup = pygame.sprite.Group()
+    self.wallgroup.add(self.wall)
     self.player = player.Player(250, self.height/2, "assets/player2.png")
     self.playergroup = pygame.sprite.Group()
     self.playergroup.add(self.player)
     self.enemies = pygame.sprite.Group()
     self.bullets = pygame.sprite.Group()
     self.bullet = bullet.Bullet(250, self.height/2, "assets/bullet.png")
-
     self.enemies_killed = 0
     self.number_of_enemies = 5
     for i in range(self.number_of_enemies):
@@ -73,11 +75,13 @@ class Controller:
         for i in enemy_hit:
           i.kill()
           self.gamestate = "LOSE"
-
+      wall= pygame.sprite.groupcollide(self.enemies, self.wallgroup, False, True)
+      if wall:
+        self.gamestate = "LOSE"
       if self.enemies_killed == self.number_of_enemies:
         self.gamestate = "WIN"
-          
       self.enemies.update()
+      
       self.bullet.update()
       self.screen.blit(self.background, (0, 0))
       self.all_sprites.draw(self.screen)
