@@ -2,7 +2,7 @@
 # CS110 Project Proposal
 # << Project Title >>
 ## CS 110 Final Project
-### << Semester, Year >>
+### Spring, 2022
 ### [Assignment Description](https://docs.google.com/document/d/1H4R6yLL7som1lglyXWZ04RvTp_RvRFCCBn6sqv-82ps/edit#)
 
 << [repl](#) >>
@@ -10,7 +10,7 @@
 << [link to demo presentation slides](#) >>
 
 ### Team: << team name >>
-#### << Team Members >>
+#### JiaRong Jin, Brian Seo, David Allen
 
 ***
 
@@ -22,7 +22,10 @@
 
 ## User Interface Design *(Front End Specialist)*
 
-* << A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program. >>
+* gameover cs110.jpg, in-game cs110.jpg, menu cs110.jpg in etc folder
+* * ![game menu sketch](etc/menu_cs110.jpg)
+* * ![in-game sketch](etc/in-game_cs110.jpg)
+* * ![game over sketch](etc/gameover_cs110.jpg)
     * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
 * << You should also have a screenshot of each screen for your final GUI >>
 
@@ -53,6 +56,7 @@ The Project is broken down into the following file structure:
     * <all of your media, i.e. images, font files, etc, should go here)
 * etc
     * <This is a catch all folder for things that are not part of your project, but you want to keep with your project. Your demo video should go here.>
+* ![structure sketch](etc/class_structure_sketch.jpg)
 
 ***
 
@@ -60,15 +64,15 @@ The Project is broken down into the following file structure:
 
    * You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
 
-### Software Lead - << name >>
+### Software Lead - JiaRong Jin
 
 << Worked as integration specialist by... >>
 
-### Front End Specialist - << name >>
+### Front End Specialist - David Allen
 
 << Front-end lead conducted significant research on... >>
 
-### Back End Specialist - << name >>
+### Back End Specialist - Brian Seo
 
 << The back end specialist... >>
 
