@@ -11,6 +11,11 @@ class Enemy(pygame.sprite.Sprite):
     self.rect.y = y
 
   def update(self):
+    """
+    this method makes the enemy to move towards the left side of the screen in a reasonable speed
+    arg:none
+    return: True(boolean)
+    """
 
     move = random.randrange(0, 30)
     if move == 1:

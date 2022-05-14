@@ -37,6 +37,11 @@ class Controller:
     self.gamestate = "RUNNING"
 
   def mainloop(self):
+    """
+    mainloop of the game, the main.py calls this method of the controller to run the game
+    arg:none
+    return:none
+    """
     while True:
       if self.gamestate == "RUNNING":
         self.gameloop()
@@ -46,7 +51,11 @@ class Controller:
         self.lose()
 
   def gameloop(self):
-    
+    """
+    gameloop is called to run the game screen. Allows user to controll the player and integrates the fron and back-end
+    arg:none
+    return:none
+    """
     while self.gamestate == "RUNNING":
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -120,6 +129,11 @@ class Controller:
                 sys.exit()
 
   def lose(self):
+    """
+    this method runs the gameover screen
+    arg:none
+    return:none
+    """
     font = pygame.font.SysFont(None, 50)
     text_1 = font.render("You lost! Press R to play again.", False, (255, 255, 255))
     text_2 = font.render("Press Q to exit.", False, (255, 255, 255))

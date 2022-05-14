@@ -12,11 +12,31 @@ class Player(pygame.sprite.Sprite):
     self.step = 5
     
   def move_up(self):
-      self.rect.y -= self.step
+    """
+    When this method is called, the player object will move up by self.step(int) 
+    arg:none
+    return:none
+    """
+    self.rect.y -= self.step
   def move_down(self):
-      self.rect.y += self.step
+    """
+    When this method is called, the player object will down by self.step(int) 
+    arg:none
+    return:none
+    """
+    self.rect.y += self.step
   def move_left(self):
-      self.rect.x -= self.step
+    """
+    When this method is called, the player object will move left by self.step(int) 
+    arg:none
+    return:none
+    """
+    self.rect.x -= self.step
   def move_right(self):
-      self.rect.x += self.step
+    """
+    When this method is called, the player object will move right by self.step(int) 
+    arg:none
+    return:none
+    """
+    self.rect.x += self.step
     
